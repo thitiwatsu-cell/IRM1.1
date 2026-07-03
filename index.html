@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IRM Extra - Luxury Property Management</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Kanit',sans-serif;
+}
+
+html,body{
+overflow-x:hidden;
+scroll-behavior:smooth;
+}
+
+body{
+background:#f8f9fa;
+color:#111;
+padding-top:75px;
+}
+
+/* Header & Navigation */
+header{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+background:rgba(10, 25, 47, 0.96);
+backdrop-filter:blur(10px);
+z-index:999;
+border-bottom:2px solid #ff7a00;
+box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.navbar{
+width:100%;
+padding:12px 25px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+flex-wrap:wrap;
+gap:10px;
+max-width: 1400px;
+margin: 0 auto;
+}
+
+.company-name{
+font-size:26px;
+font-weight:700;
+color:#ff7a00;
+white-space:nowrap;
+letter-spacing: 1px;
+}
+
+.nav-menu{
+display:flex;
+flex-wrap:wrap;
+gap:8px;
+}
+
+.nav-menu a{
+text-decoration:none;
+color:#ffffff;
+font-size:13px;
+font-weight: 400;
+padding:8px 14px;
+border-radius:20px;
+transition:.3s ease;
+}
+
+.nav-menu a:hover{
+background: #ff7a00;
+color:#fff;
+}
+
+.nav-menu a.career-btn {
+background: rgba(255,122,0,0.2);
+color: #ff9130;
+border: 1px solid rgba(255,122,0,0.4);
+font-weight: 500;
+}
+
+.nav-menu a.career-btn:hover {
+background:#ff7a00;
+color:#fff;
+}
+
+/* Hero Section */
+.hero{
+min-height:100vh;
+width: 100vw;
+max-width: 100%;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:40px 20px;
+background:
+linear-gradient(rgba(10, 25, 47, 0.4), rgba(10, 25, 47, 0.6)),
+url("CONDO.png");
+background-size:cover;
+background-position:center;
+background-repeat: no-repeat;
+color:white;
+margin: 0;
+}
+
+.hero-content{
+background:rgba(255, 255, 255, 0.96);
+padding:50px 40px;
+border-radius:30px;
+max-width:900px;
+width:100%;
+color:#0a192f;
+box-shadow:0 20px 50px rgba(0,0,0,0.25);
+border: 1px solid rgba(255,122,0,0.15);
+}
+
+.hero h1{
+font-size:clamp(32px,8vw,75px);
+color:#0a192f;
+font-weight: 700;
+margin-bottom: 10px;
+}
+
+.hero h1 span {
+color: #ff7a00;
+}
+
+.hero h2{
+font-size:clamp(20px,4vw,32px);
+margin:15px 0;
+font-weight: 600;
+color: #222;
+}
+
+.hero p{
+font-size:clamp(14px,3vw,18px);
+color: #555;
+line-height: 1.6;
+}
+
+.btn{
+display:inline-block;
+margin-top:30px;
+padding:14px 40px;
+background: linear-gradient(135deg, #ff7a00, #e56a00);
+color:white;
+text-decoration:none;
+border-radius:30px;
+font-weight: 500;
+box-shadow: 0 4px 15px rgba(255,122,0,0.3);
+transition:.3s ease;
+}
+
+.btn:hover{
+transform:translateY(-3px);
+box-shadow: 0 6px 20px rgba(255,122,0,0.5);
+}
+
+/* Section Common Styling */
+section{
+padding:100px 20px;
+max-width: 1200px;
+margin: 0 auto;
+}
+
+.section-title{
+text-align:center;
+font-size:36px;
+color:#0a192f;
+margin-bottom:45px;
+position: relative;
+font-weight: 600;
+}
+
+.section-title::after {
+content: '';
+position: absolute;
+bottom: -10px;
+left: 50%;
+transform: translateX(-50%);
+width: 60px;
+height: 4px;
+background: #ff7a00;
+border-radius: 2px;
+}
+
+/* About Section */
+.about-container{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:50px;
+align-items:center;
+}
+
+.about-image{
+height:480px;
+position:relative;
+overflow:hidden;
+border-radius:24px;
+box-shadow:0 15px 35px rgba(0,0,0,0.08);
+background:#eee;
+}
+
+.about-image img{
+position:absolute;
+inset:0;
+width:100%;
+height:100%;
+object-fit:cover;
+object-position:center top;
+opacity:0;
+transform:scale(1.05);
+transition:1.2s ease;
+border-radius:24px;
+}
+
+.about-image img.active{
+opacity:1;
+transform:scale(1);
+}
+
+.about-text-area h3 {
+font-size: 28px;
+color: #0a192f;
+font-weight:600;
+margin-bottom:15px;
+}
+
+/* Stats Box Styling */
+.stats-container {
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+margin-top:35px;
+}
+
+.stat-item {
+background:#ffffff;
+padding:30px 20px;
+border-radius:20px;
+border: none;
+box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+text-align:center;
+transition: .3s ease;
+}
+
+.stat-item.full-width {
+grid-column: span 2;
+}
+
+.stat-item:hover {
+transform: translateY(-5px);
+box-shadow: 0 15px 35px rgba(255,122,0,0.12);
+}
+
+.stat-number {
+font-size:38px;
+font-weight:700;
+color:#ff7a00;
+margin-bottom:8px;
+}
+
+.stat-label {
+font-size:14px;
+color:#555;
+font-weight:400;
+}
+
+/* Vision & Values */
+.values-grid {
+display:grid;
+grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+gap:20px;
+margin-top:35px;
+}
+
+.value-card {
+background:#ffffff;
+border-left:5px solid #0a192f;
+padding:20px;
+border-radius:12px;
+box-shadow:0 8px 20px rgba(0,0,0,0.03);
+text-align:left;
+transition: .3s ease;
+}
+
+.value-card:hover {
+border-left-color: #ff7a00;
+transform: translateX(5px);
+}
+
+.value-card h4 {
+color:#0a192f;
+font-size:16px;
+margin-bottom:6px;
+font-weight:600;
+}
+
+.value-card p {
+font-size:13px;
+color:#666;
+}
+
+/* Services */
+.services-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
+gap:30px;
+}
+
+.service-card{
+background:#ffffff;
+padding:30px 25px;
+border-radius:20px;
+text-align:center;
+box-shadow:0 10px 30px rgba(0,0,0,0.04);
+transition:.3s ease;
+border: 1px solid rgba(0,0,0,0.03);
+}
+
+.service-card:hover{
+transform:translateY(-8px);
+box-shadow:0 15px 35px rgba(10,25,47,0.08);
+}
+
+.service-card h4 {
+font-size: 18px;
+font-weight: 600;
+border-bottom: 1px solid #eee;
+padding-bottom:12px;
+}
+
+/* Team Section */
+.team-container {
+display: flex;
+flex-direction: column;
+gap: 40px;
+align-items: center;
+width: 100%;
+}
+
+.ceo-row {
+display: flex;
+justify-content: center;
+width: 100%;
+margin-bottom: 10px;
+}
+
+.managers-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 30px;
+width: 100%;
+}
+
+.team-card{
+background:#ffffff;
+padding:25px;
+border-radius:24px;
+text-align:center;
+box-shadow:0 12px 30px rgba(0,0,0,0.05);
+border: 2px solid #eef1f6;
+transition:.35s ease;
+display:flex;
+flex-direction:column;
+align-items:center;
+width: 100%;
+}
+
+.team-card:hover {
+transform: translateY(-8px);
+border-color: #ff7a00;
+box-shadow: 0 15px 35px rgba(255,122,0,0.12);
+}
+
+.img-box-team{
+width:100%;
+aspect-ratio: 1 / 1;
+overflow:hidden;
+border-radius:18px;
+background:#ffffff;
+margin-bottom: 20px;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.img-box-team img{
+width:100%;
+height:100%;
+object-fit: contain;
+transition:.4s ease;
+}
+
+.team-card h3 {
+font-size: 19px;
+color: #0a192f;
+margin-bottom: 6px;
+font-weight: 600;
+}
+
+.team-card p {
+font-size: 13.5px;
+color: #555;
+font-weight: 400;
+}
+
+/* Portfolio Section (Work) */
+.work-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+gap:25px;
+}
+
+.Work-card{
+background:#ffffff;
+border-radius:22px;
+overflow:hidden;
+text-align:center;
+box-shadow:0 10px 25px rgba(0,0,0,0.04);
+transition:.35s ease;
+padding-bottom:20px;
+}
+
+.Work-card:hover{
+transform:translateY(-8px);
+box-shadow:0 20px 40px rgba(10,25,47,0.12);
+}
+
+.Work-card img {
+width: 100%;
+aspect-ratio: 16/10;
+object-fit: cover;
+}
+
+.Work-card h3{
+font-size:15px;
+color: #0a192f;
+margin:15px 0 5px;
+padding: 0 10px;
+font-weight: 600;
+}
+
+.Work-card p{
+font-size:12px;
+color:#666;
+}
+
+/* Contact Section */
+.contact-box-full {
+background:#ffffff;
+padding:40px;
+border-radius:24px;
+text-align:left;
+box-shadow:0 15px 35px rgba(10,25,47,0.06);
+border-top: 5px solid #ff7a00;
+max-width: 750px;
+margin: 0 auto;
+}
+
+.contact-box-full h3 {
+font-size:22px;
+color:#0a192f;
+margin-bottom:15px;
+font-weight: 600;
+}
+
+.contact-box-full p {
+margin-bottom:12px;
+font-size:14.5px;
+color:#333;
+line-height: 1.6;
+}
+
+/* Footer */
+footer{
+text-align:center;
+padding:30px;
+background:#0a192f;
+border-top:3px solid #ff7a00;
+color:#ffffff;
+font-size: 14px;
+letter-spacing: 0.5px;
+}
+
+/* Responsive */
+@media(max-width:992px){
+.managers-grid {
+    grid-template-columns: repeat(2, 1fr);
+}
+.about-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+.about-image {
+    height: 380px;
+}
+}
+
+@media(max-width:768px){
+body{ padding-top:110px; }
+.navbar{ flex-direction:column; align-items:center; }
+.managers-grid { grid-template-columns: 1fr; justify-items: center; }
+.section-title{ font-size:28px; }
+.about-image { height:280px; }
+.stats-container { grid-template-columns: 1fr; }
+.stat-item.full-width { grid-column: span 1; }
+section { padding: 60px 20px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="navbar">
+<div class="company-name">IRM<span style="color:#ffffff;">Extra</span></div>
+<div class="nav-menu">
+<a href="#about">เกี่ยวกับเรา</a>
+<a href="#vision">วิสัยทัศน์และค่านิยม</a>
+<a href="#mission">พันธกิจ</a>
+<a href="#services">บริการและการจัดการ</a>
+<a href="#team">ทีมผู้บริหาร</a>
+<a href="#Work">โครงการที่ดูแล</a>
+<a href="#contact">ติดต่อเรา</a>
+<a href="career.html" class="career-btn">สมัครงาน</a>
+</div>
+</div>
+</header>
+
+<section class="hero">
+<div class="hero-content">
+<h1>IRM <span>EXTRA</span></h1>
+<h2>เราดูแลทุกวัน เพื่อให้โครงการน่าอยู่</h2>
+<p>ผู้เชี่ยวชาญด้านการบริหารนิติบุคคลอาคารชุด และหมู่บ้านจัดสรรแบบครบวงจรระดับพรีเมียม</p>
+<a href="#about" class="btn">ดูรายละเอียดบริษัท</a>
+</div>
+</section>
+
+<section id="about">
+<h2 class="section-title">เกี่ยวกับบริษัท</h2>
+<div class="about-container">
+<div class="about-image">
+<img src="CONDO.png" class="active">
+<img src="CONDO2.png">
+<img src="CONDO3.png">
+</div>
+<div class="about-text-area">
+<h3>IRM Extra Property Management</h3>
+<p style="line-height:1.8; color:#444;">
+บริษัท ไอ อาร์ เอ็ม เอ็กซ์ตร้า จำกัด เป็นบริษัทในเครือของบริษัท IRM ดำเนินการธุรกิจบริหารทรัพย์สินและชุมชนด้วยมาตรฐานสากล เจาะลึกดูแลเฉพาะพื้นที่ภาคอีสานและภาคเหนืออย่างทั่วถึง พร้อมขับเคลื่อนงานบริการเคียงคู่ไปกับ บริษัท เอ็กซ์ตร้า เซอร์วิส จำกัด มั่นคงด้วยศักยภาพทีมงานมืออาชีพ
+</p>
+<div class="stats-container">
+    <div class="stat-item"><div class="stat-number">2554</div><div class="stat-label">ปีที่ก่อตั้ง (ประสบการณ์มั่นคง)</div></div>
+    <div class="stat-item"><div class="stat-number">35 ลบ.</div><div class="stat-label">วงเงินประกันความเสียหาย</div></div>
+    <div class="stat-item full-width"><div class="stat-number">6,000,000</div><div class="stat-label">ทุนจดทะเบียนรวมกลุ่มบริษัท</div></div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="vision" style="background:rgba(10,25,47,0.02); border-top: 1px solid #eee; border-bottom: 1px solid #eee; max-width:100%;">
+<div style="max-width:1200px; margin:0 auto;">
+<h2 class="section-title">วิสัยทัศน์และค่านิยมองค์กร</h2>
+<p style="text-align:center; font-size:19px; font-weight:500; max-width:800px; margin:0 auto 35px; color:#0a192f; line-height:1.6;">
+"เป็นบริษัทให้บริการด้านบริหารทรัพย์สินโดยทีมงานมืออาชีพที่ได้รับการยอมรับสูงสุดในประเทศไทย"
+</p>
+<div style="max-width:950px; margin:auto; text-align:center;">
+    <h3 style="color:#ff7a00; font-size:20px; margin-bottom:20px; font-weight:600;">ค่านิยมหลักในการขับเคลื่อนบริการ (PEPSI "A")</h3>
+    <div class="values-grid">
+        <div class="value-card"><h4>P - Positive Attitude</h4><p>มีทัศนคติเชิงบวก มุ่งมั่นแก้ไขปัญหา</p></div>
+        <div class="value-card"><h4>E - Ethics & Integrity</h4><p>มีคุณธรรม จรรยาบรรณ และซื่อสัตย์ในวิชาชีพ</p></div>
+        <div class="value-card"><h4>P - Professionalism</h4><p>ทำงานอย่างมืออาชีพ ลูกค้าเป็นศูนย์กลาง</p></div>
+        <div class="value-card"><h4>S - Speed & Quality</h4><p>รวดเร็ว ทันใจ และเปี่ยมด้วยคุณภาพ</p></div>
+        <div class="value-card"><h4>I - Innovativeness</h4><p>สร้างสรรค์นวัตกรรมและเทคโนโลยีใหม่</p></div>
+        <div class="value-card"><h4>A - Accept Change</h4><p>พร้อมปรับตัว ยอมรับการเปลี่ยนแปลง</p></div>
+    </div>
+</div>
+</div>
+</section>
+
+<section id="mission">
+<h2 class="section-title">พันธกิจของเรา</h2>
+<div class="services-grid" style="margin-bottom:35px;">
+<div class="service-card" style="font-weight:600; color:#ff7a00; border-top: 3px solid #ff7a00;">1. พัฒนาศักยภาพบุคลากร</div>
+<div class="service-card" style="font-weight:600; color:#ff7a00; border-top: 3px solid #ff7a00;">2. นำเทคโนโลยีมาปรับใช้</div>
+<div class="service-card" style="font-weight:600; color:#ff7a00; border-top: 3px solid #ff7a00;">3. เน้นให้ลูกค้ามีส่วนร่วม</div>
+<div class="service-card" style="font-weight:600; color:#ff7a00; border-top: 3px solid #ff7a00;">4. ปลูกฝังความซื่อสัตย์</div>
+</div>
+<p style="text-align:center; line-height:1.9; color:#555; max-width:850px; margin:auto; font-size:14.5px;">
+เรามุ่งมั่นพัฒนาศักยภาพด้านบุคลากรให้สามารถให้บริการได้ตามมาตรฐานสากล นำเทคโนโลยีและนวัตกรรมต่างๆ มาปรับใช้เพื่อรองรับการเปลี่ยนแปลง พัฒนาการให้บริการโดยเน้นให้ลูกค้ามีส่วนร่วม พร้อมปลูกฝังคุณธรรม ความซื่อสัตย์และจริยธรรมในวิชาชีพอย่างสูงสุด
+</p>
+</section>
+
+<section id="services" style="background:rgba(10,25,47,0.02); border-top: 1px solid #eee; border-bottom: 1px solid #eee; max-width:100%;">
+<div style="max-width:1200px; margin:0 auto;">
+<h2 class="section-title">ขอบเขตการให้บริการและการจัดการ</h2>
+<div class="services-grid" style="margin-bottom:45px;">
+<div class="service-card">
+    <h4 style="color:#0a192f; margin-bottom:15px;">Scope of Services</h4>
+    <p style="font-size:13.5px; text-align:left; color:#555; line-height:1.8;">
+    • ให้คำปรึกษาหลังการขาย / วางระบบงาน<br>
+    • จดทะเบียนนิติบุคคลบ้านจัดสรรและอาคารชุด<br>
+    • บริหารนิติบุคคลอาคารชุด / หมู่บ้านครบวงจร<br>
+    • จัดเสวนาและจัดประชุมใหญ่สามัญประจำปี<br>
+    • ตรวจสอบสาธารณูปโภคและระบบวิศวกรรม
+    </p>
+</div>
+<div class="service-card">
+    <h4 style="color:#0a192f; margin-bottom:15px;">Finance & Accounting System</h4>
+    <p style="font-size:13.5px; text-align:left; color:#555; line-height:1.8;">
+    • ออกบิลและใบเสร็จด้วยซอฟต์แวร์ที่ทันสมัย<br>
+    • ตรวจสอบยอดค้างชำระได้ตลอดเวลาแบบ Real-time<br>
+    • จัดทำบัญชี รายรับ-รายจ่าย งบดุล ส่งตรวจสอบทุกเดือน<br>
+    • ควบคุมงบประมาณให้โปร่งใสและมีประสิทธิภาพสูงสุด
+    </p>
+</div>
+<div class="service-card">
+    <h4 style="color:#0a192f; margin-bottom:15px;">Engineering & Maintenance</h4>
+    <p style="font-size:13.5px; text-align:left; color:#555; line-height:1.8;">
+    • วางแผนบำรุงรักษาเชิงป้องกัน (Preventive Maintenance Plan)<br>
+    • จัดทำแผนและคู่มือรองรับเหตุฉุกเฉิน (Contingency Plan)<br>
+    • ควบคุมดูแลระบบไฟฟ้า ประปา ลิฟต์ สระว่ายน้ำ และ CCTV<br>
+    • โครงการประหยัดพลังงาน (Energy-saving) ลดค่าใช้จ่ายส่วนกลาง
+    </p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="team" style="background:rgba(10,25,47,0.02); border-top: 1px solid #eee; border-bottom: 1px solid #eee; max-width:100%;">
+<div style="max-width:1200px; margin:0 auto;">
+<h2 class="section-title">ทีมผู้บริหารระดับสูง</h2>
+<div class="team-container">
+    
+    <div class="ceo-row">
+        <div class="team-card" style="max-width: 340px;">
+            <div class="img-box-team"><img src="ceo.jpg" alt="CEO"></div>
+            <h3>ธนันทร์เอก หวานฉ่ำ</h3>
+            <p>CEO / กรรมการผู้จัดการ</p>
+        </div>
+    </div>
+
+    <div class="managers-grid">
+        <div class="team-card">
+            <div class="img-box-team"><img src="ops.jpg" alt="Operations Manager"></div>
+            <h3>ฐาปนันท์ เศษสมบูรณ์</h3>
+            <p>Operations Manager (ฝ่ายปฏิบัติการ)</p>
+        </div>
+        <div class="team-card">
+            <div class="img-box-team"><img src="eng.jpg" alt="Engineering Manager"></div>
+            <h3>พงศ์เทพ เลียงผา</h3>
+            <p>Engineering Manager (ฝ่ายวิศวกรรม)</p>
+        </div>
+        <div class="team-card">
+            <div class="img-box-team"><img src="ptt.jpg" alt="Assistant Manager"></div>
+            <h3>ธนารักษ์ ปิยะปรีชายุทธ</h3>
+            <p>Assistant Operations Manager</p>
+        </div>
+    </div>
+
+</div>
+</div>
+</section>
+
+<section id="Work">
+<h2 class="section-title">โครงการส่วนหนึ่งที่ได้รับความไว้วางใจ</h2>
+<div class="work-grid">
+    <div class="Work-card"><img src="sydney.jpg"><h3>ซิตี้ลิงค์ คอนโด – ซิดนีย์</h3><p>Citylink Condominium – Sydney</p></div>
+    <div class="Work-card"><img src="boston.jpg"><h3>ซิตี้ลิงค์ คอนโด – บอสตัน</h3><p>Citylink Condominium – Boston</p></div>
+    <div class="Work-card"><img src="sf.jpg"><h3>ซิตี้ลิงค์ คอนโด – ซานฟราน</h3><p>Citylink Condominium – San Francisco</p></div>
+    <div class="Work-card"><img src="Miami.jpg"><h3>ซิตี้ลิงค์ คอนโด – ไมอามี</h3><p>Citylink Condominium – Miami</p></div>
+    <div class="Work-card"><img src="Milan.jpg"><h3>ซิตี้ลิงค์ คอนโด – มิลาน</h3><p>Citylink Condominium – Milan</p></div>
+    <div class="Work-card"><img src="Paris.jpg"><h3>ซิตี้ลิงค์ คอนโด – ปารีส</h3><p>Citylink Condominium – Paris</p></div>
+    <div class="Work-card"><img src=" Relax Condo.jpg"><h3>The Change Relax Condo</h3><p>เดอ เชนจ์ รีแลกซ์ คอนโด โคราช</p></div>
+    <div class="Work-card"><img src="laguna.jpg"><h3>หมู่บ้านจัดสรร ลากูน่าวิลล์</h3><p>Laguna Ville Nakhon Ratchasima</p></div>
+</div>
+</section>
+
+<section id="contact" style="background:#fafafa; max-width:100%;">
+<div class="contact-box-full">
+    <h3>IRM EXTRA (สำนักงานใหญ่ภาคอีสาน)</h3>
+    <p style="margin:15px 0 20px; color:#555; line-height:1.7;">
+        หากคณะกรรมการโครงการหรือผู้พัฒนาอสังหาริมทรัพย์ท่านใด ต้องการสอบถามข้อมูลบริการ คำปรึกษาด้านการจัดตั้งนิติบุคคล วางระบบบริหารจัดการชุมชน หรือระบบบัญชีวิศวกรรมอาคาร สามารถติดต่อเจ้าหน้าที่ผู้เชี่ยวชาญของเราได้โดยตรงตามข้อมูลด้านล่างนี้
+    </p>
+    <hr style="border:0; border-top:1px solid #eee; margin:15px 0;">
+    <p><b>📍 ที่อยู่สำนักงาน:</b> 1694 ถนนมิตรภาพ ต.ในเมือง อ.เมือง จ.นครราชสีมา 30000</p>
+    <p><b>📞 เบอร์โทรศัพท์ติดต่อ:</b> 044-075-090, 098-705-695</p>
+    <p><b>✉️ อีเมลกลาง:</b> irmextrakorat@gmail.com</p>
+</div>
+</section>
+
+<footer>
+IRM EXTRA © 2026 Premium Property Management Service
+</footer>
+
+<script>
+let index=0;
+const slides=document.querySelectorAll(".about-image img");
+setInterval(()=>{
+    slides.forEach(s=>s.classList.remove("active"));
+    slides[index].classList.add("active");
+    index=(index+1)%slides.length;
+},2500);
+</script>
+
+</body>
+</html>

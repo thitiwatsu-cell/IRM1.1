@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ส่งใบสมัครสำเร็จ | IRM Extra</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Kanit', sans-serif;
+}
+
+html, body {
+    overflow-x: hidden;
+    height: 100%;
+}
+
+/* ดึงพื้นหลังและระยะห่างมาจากหน้าแรก */
+body {
+    background: #f8f9fa;
+    color: #111;
+    padding-top: 75px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header & Navigation (ถอดมาจากหน้าแรก 100%) */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(10, 25, 47, 0.96);
+    backdrop-filter: blur(10px);
+    z-index: 999;
+    border-bottom: 2px solid #ff7a00;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.navbar {
+    width: 100%;
+    padding: 12px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.company-name {
+    font-size: 26px;
+    font-weight: 700;
+    color: #ff7a00;
+    letter-spacing: 1px;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 400;
+    padding: 8px 14px;
+    border-radius: 20px;
+    transition: .3s ease;
+}
+
+.nav-menu a:hover {
+    background: #ff7a00;
+    color: #fff;
+}
+
+/* ส่วนเนื้อหาหลัก จัดให้อยู่กึ่งกลางหน้าจอ */
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+}
+
+/* การ์ดแจ้งเตือน (ใช้ดีไซน์กล่องขาวหรูหรา ขอบส้มหนาแบบกล่องติดต่อในหน้าแรก) */
+.success-card {
+    background: #ffffff;
+    padding: 50px 40px;
+    border-radius: 24px;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(10,25,47,0.06);
+    border-top: 5px solid #ff7a00;
+    max-width: 600px;
+    width: 100%;
+}
+
+/* ไอคอนวงกลมสีส้มพรีเมียม */
+.icon-box {
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 122, 0, 0.1);
+    color: #ff7a00;
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    margin: 0 auto 25px;
+}
+
+h1 {
+    color: #0a192f;
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+h1 span {
+    color: #ff7a00;
+}
+
+p {
+    color: #444;
+    line-height: 1.8;
+    font-size: 15.5px;
+}
+
+/* กล่องเลขอ้างอิงสไตล์เดียวกับตารางงานในหน้าแรก */
+.reference-badge {
+    display: inline-block;
+    margin: 25px 0;
+    padding: 12px 30px;
+    background: #fafafa;
+    color: #0a192f;
+    border-radius: 12px;
+    font-weight: 600;
+    border: 1px solid #eef1f6;
+    font-size: 15px;
+}
+
+/* ปุ่มกดสีกราเดียนท์ส้ม (ถอดมาจากหน้าแรก 100%) */
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 14px 45px;
+    background: linear-gradient(135deg, #ff7a00, #e56a00);
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 500;
+    box-shadow: 0 4px 15px rgba(255,122,0,0.3);
+    transition: .3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(255,122,0,0.5);
+}
+
+/* Footer (ถอดมาจากหน้าแรก 100%) */
+footer {
+    text-align: center;
+    padding: 30px;
+    background: #0a192f;
+    border-top: 3px solid #ff7a00;
+    color: #ffffff;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+}
+
+/* Responsive */
+@media(max-width:768px){
+    body { padding-top: 110px; }
+    .navbar { flex-direction: column; align-items: center; gap: 12px; }
+    .success-card { padding: 40px 20px; }
+    h1 { font-size: 26px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="navbar">
+        <div class="company-name">IRM<span style="color:#ffffff;">Extra</span></div>
+        <div class="nav-menu">
+            <a href="index.html">หน้าหลัก</a>
+            <a href="index.html#about">เกี่ยวกับเรา</a>
+            <a href="index.html#services">บริการของเรา</a>
+            <a href="index.html#team">ทีมบริหาร</a>
+            <a href="index.html#contact">ติดต่อเรา</a>
+        </div>
+    </div>
+</header>
+
+<main>
+    <div class="success-card">
+        <div class="icon-box">✓</div>
+
+        <h1>ส่งใบสมัคร<span>สำเร็จ</span></h1>
+
+        <p style="font-size: 17px; font-weight: 500; color: #0a192f;">
+            ขอบคุณที่สนใจร่วมเป็นส่วนหนึ่งกับ IRM Extra
+        </p>
+        <p style="margin-top: 5px;">
+            ระบบได้รับข้อมูลการสมัครงานของคุณเรียบร้อยแล้ว
+        </p>
+
+        <div class="reference-badge">
+            <span style="color: #ff7a00; margin-right: 5px;">●</span> เลขอ้างอิง: IRM-2026-0001
+        </div>
+
+        <p style="font-size: 14px; color: #666; max-width: 450px; margin: 0 auto;">
+            ฝ่ายทรัพยากรบุคคล (HR) จะดำเนินการตรวจสอบเอกสารและข้อมูลของท่าน และจะติดต่อกลับเพื่อแจ้งผลภายใน 3-7 วันทำการ
+        </p>
+
+        <a href="index.html" class="btn">กลับสู่หน้าหลัก</a>
+    </div>
+</main>
+
+<footer>
+    IRM EXTRA © 2026 Premium Property Management Service
+</footer>
+
+</body>
+</html>

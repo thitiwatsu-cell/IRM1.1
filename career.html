@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ร่วมงานกับเรา | IRM Extra</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Kanit', sans-serif;
+}
+
+html, body {
+    overflow-x: hidden;
+    background: #f8f9fa;
+    color: #111;
+    padding-top: 75px;
+}
+
+/* Header & Navigation (ถอดดีไซน์มาจากหน้าหลัก 100%) */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(10, 25, 47, 0.96);
+    backdrop-filter: blur(10px);
+    z-index: 999;
+    border-bottom: 2px solid #ff7a00;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.navbar {
+    width: 100%;
+    padding: 12px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.company-name {
+    font-size: 26px;
+    font-weight: 700;
+    color: #ff7a00;
+    letter-spacing: 1px;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 400;
+    padding: 8px 14px;
+    border-radius: 20px;
+    transition: .3s ease;
+}
+
+.nav-menu a:hover {
+    background: #ff7a00;
+    color: #fff;
+}
+
+/* Container ส่วนเนื้อหา */
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 80px 20px;
+}
+
+/* หัวข้อประจำหน้าเพจ */
+.page-title {
+    text-align: center;
+    font-size: 36px;
+    color: #0a192f;
+    margin-bottom: 50px;
+    position: relative;
+    font-weight: 600;
+}
+
+.page-title span {
+    color: #ff7a00;
+}
+
+.page-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: #ff7a00;
+    border-radius: 2px;
+}
+
+/* การ์ดตำแหน่งงาน (ปรับสไตล์ให้พรีเมียม ลอยนวล และคลีนขึ้นแบบหน้าหลัก) */
+.job {
+    background: #ffffff;
+    padding: 30px;
+    margin-bottom: 25px;
+    border-radius: 20px;
+    border-left: 5px solid #0a192f; /* ขอบซ้ายน้ำเงินเข้มแบบหน้าหลัก */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03);
+    transition: .3s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.job:hover {
+    transform: translateX(5px);
+    border-left-color: #ff7a00; /* เปลี่ยนเป็นสีส้มเวลาชี้ */
+    box-shadow: 0 12px 30px rgba(255, 122, 0, 0.08);
+}
+
+.job-info h2 {
+    color: #0a192f;
+    font-size: 22px;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.job-info p {
+    color: #555;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* ปุ่มกดสีกราเดียนท์ (ถอดแบบมาจากหน้าหลัก 100%) */
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    background: linear-gradient(135deg, #ff7a00, #e56a00);
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 500;
+    font-size: 14.5px;
+    box-shadow: 0 4px 15px rgba(255,122,0,0.25);
+    transition: .3s ease;
+    white-space: nowrap;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(255,122,0,0.45);
+}
+
+/* Footer (ถอดมาจากหน้าหลัก 100%) */
+footer {
+    text-align: center;
+    padding: 30px;
+    background: #0a192f;
+    border-top: 3px solid #ff7a00;
+    color: #ffffff;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    margin-top: auto;
+}
+
+/* Responsive */
+@media(max-width:768px) {
+    body { padding-top: 110px; }
+    .navbar { flex-direction: column; align-items: center; gap: 12px; }
+    .page-title { font-size: 28px; }
+    .job { flex-direction: column; text-align: center; padding: 25px 20px; }
+    .btn { width: 100%; text-align: center; margin-top: 10px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+    <div class="navbar">
+        <div class="company-name">IRM<span style="color:#ffffff;">Extra</span></div>
+        <div class="nav-menu">
+            <a href="index.html">หน้าหลัก</a>
+            <a href="index.html#about">เกี่ยวกับเรา</a>
+            <a href="index.html#services">บริการของเรา</a>
+            <a href="index.html#team">ทีมบริหาร</a>
+            <a href="index.html#contact">ติดต่อเรา</a>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+
+    <h1 class="page-title">มาร่วมงานกับ <span>IRM Extra</span></h1>
+
+    <div class="job">
+        <div class="job-info">
+            <h2>ผู้จัดการโครงการ</h2>
+            <p>ดูแลและบริหารจัดการงานนิติบุคคลอาคารชุดและหมู่บ้านจัดสรร ควบคุมดูแลการปฏิบัติงานของเจ้าหน้าที่ภายในโครงการ</p>
+        </div>
+        <a href="apply.html" class="btn">สมัครตำแหน่งนี้</a>
+    </div>
+
+    <div class="job">
+        <div class="job-info">
+            <h2>เจ้าหน้าที่นิติบุคคล</h2>
+            <p>ประสานงานต้อนรับลูกบ้าน จัดการเอกสาร อำนวยความสะดวก และติดต่อประสานงานกับคณะกรรมการโครงการ</p>
+        </div>
+        <a href="apply.html" class="btn">สมัครตำแหน่งนี้</a>
+    </div>
+
+    <div class="job">
+        <div class="job-info">
+            <h2>เจ้าหน้าที่บัญชี</h2>
+            <p>จัดทำบัญชี รายรับ-รายจ่าย รายงานทางการเงิน ตรวจสอบงบประมาณ และสรุปยอดค่าใช้จ่ายส่วนกลางของโครงการ</p>
+        </div>
+        <a href="apply.html" class="btn">สมัครตำแหน่งนี้</a>
+    </div>
+
+    <div class="job">
+        <div class="job-info">
+            <h2>ช่างซ่อมบำรุง</h2>
+            <p>ตรวจสอบและดูแลรักษาระบบวิศวกรรมอาคาร ระบบไฟฟ้า ประปา สระว่ายน้ำ และงานสาธารณูปโภคส่วนกลาง</p>
+        </div>
+        <a href="apply.html" class="btn">สมัครตำแหน่งนี้</a>
+    </div>
+
+</div>
+
+<footer>
+    IRM EXTRA © 2026 Premium Property Management Service
+</footer>
+
+</body>
+</html>
