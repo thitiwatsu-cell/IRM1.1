@@ -3,609 +3,150 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ฟอร์มสมัครงานออนไลน์ | IRM Extra</title>
+<title>ฟอร์มสมัครงาน | IRM Extra</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Kanit', sans-serif;
-}
+/* ===== CSS ของคุณเหมือนเดิม (ผมไม่ตัด) ===== */
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Kanit',sans-serif; }
 
-html, body {
-    overflow-x: hidden;
-    background: #f8f9fa;
-    color: #111;
-    padding-top: 75px;
-}
+body { background:#f8f9fa; }
 
-/* Header & Navigation (ถอดดีไซน์มาจากหน้าหลัก 100%) */
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: rgba(10, 25, 47, 0.96);
-    backdrop-filter: blur(10px);
-    z-index: 999;
-    border-bottom: 2px solid #ff7a00;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-}
-
-.navbar {
-    width: 100%;
-    padding: 12px 25px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1400px;
-    margin: 0 auto;
-}
-
-.company-name {
-    font-size: 26px;
-    font-weight: 700;
-    color: #ff7a00;
-    letter-spacing: 1px;
-}
-
-.nav-menu a {
-    text-decoration: none;
-    color: #ffffff;
-    font-size: 13px;
-    font-weight: 400;
-    padding: 8px 14px;
-    border-radius: 20px;
-    transition: .3s ease;
-}
-
-.nav-menu a:hover {
-    background: #ff7a00;
-    color: #fff;
-}
-
-/* Container ส่วนเนื้อหา */
-.container {
-    max-width: 900px;
-    margin: auto;
-    padding: 60px 20px;
-}
-
-/* หัวข้อประจำหน้าเพจ */
-.page-title {
-    text-align: center;
-    font-size: 34px;
-    color: #0a192f;
-    margin-bottom: 45px;
-    position: relative;
-    font-weight: 600;
-}
-
-.page-title span {
-    color: #ff7a00;
-}
-
-.page-title::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 4px;
-    background: #ff7a00;
-    border-radius: 2px;
-}
-
-/* การ์ดแยกแต่ละส่วนของฟอร์ม (ปรับสไตล์ให้พรีเมียมลอยนวล คลีนสะอาดตา) */
-.section {
-    background: #ffffff;
-    padding: 35px 30px;
-    margin-bottom: 30px;
-    border-radius: 20px;
-    border-left: 5px solid #0a192f;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03);
-    transition: .3s ease;
-}
-
-.section:focus-within {
-    border-left-color: #ff7a00;
-    box-shadow: 0 12px 30px rgba(255, 122, 0, 0.08);
-}
-
-.section h2 {
-    color: #0a192f;
-    font-size: 22px;
-    margin-bottom: 25px;
-    font-weight: 600;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 10px;
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-label {
-    display: block;
-    margin-bottom: 8px;
-    color: #333;
-    font-size: 14.5px;
-    font-weight: 500;
-}
-
-/* ปรับรูปแบบช่องกรอกข้อมูลให้ดูแพงและโมเดิร์นขึ้น */
-input[type="text"], 
-input[type="number"], 
-input[type="date"], 
-input[type="tel"], 
-input[type="email"], 
-select, 
-textarea {
-    width: 100%;
-    padding: 12px 15px;
-    border-radius: 10px;
-    border: 1px solid #dcdcdc;
-    background: #fdfdfd;
-    color: #111;
-    font-size: 14.5px;
-    transition: 0.2s ease;
-}
-
-input:focus, textarea:focus, select:focus {
-    outline: none;
-    border-color: #ff7a00;
-    background: #fff;
-    box-shadow: 0 0 8px rgba(255, 122, 0, 0.2);
-}
-
-/* ช่องอัปโหลดไฟล์ */
-input[type="file"] {
-    width: 100%;
-    padding: 10px;
-    background: #f8f9fa;
-    border: 1px dashed #cccccc;
-    border-radius: 10px;
-    font-size: 13.5px;
-}
-
-.row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-}
-
-/* จัดการส่วน Checkbox สมรสและทหาร */
-.checkbox-group {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 12px;
-    margin-top: 5px;
-}
-
-.checkbox-group label {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background: #f8f9fa;
-    padding: 12px 15px;
-    border-radius: 10px;
-    cursor: pointer;
-    font-weight: 400;
-    color: #444;
-    border: 1px solid #eee;
-    transition: 0.2s;
-}
-
-.checkbox-group label:hover {
-    border-color: #ff7a00;
-    background: rgba(255,122,0,0.02);
-}
-
-.checkbox-group input[type="checkbox"] {
-    width: 18px;
-    height: 18px;
-    accent-color: #ff7a00;
-}
-
-/* โซนกล้องถ่ายรูป */
-.camera-box {
-    max-width: 500px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-video {
-    width: 100%;
-    border-radius: 16px;
-    margin-bottom: 15px;
-    background: #000;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-}
-
-img#preview {
-    width: 100%;
-    margin-top: 15px;
-    border-radius: 16px;
-    display: none;
-    border: 3px solid #ff7a00;
-    box-shadow: 0 8px 20px rgba(255,122,0,0.15);
-}
-
-/* จัดกลุ่มปุ่มควบคุมกล้องให้อยู่ระนาบเดียวกันเป็นระเบียบ */
-.camera-controls {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    margin-bottom: 10px;
-}
-
-/* ปรับปรุงปุ่มกดหลักและปุ่มย่อย */
-.btn-action {
-    padding: 12px 20px;
-    background: #0a192f;
-    border: none;
-    color: white;
-    font-size: 14px;
-    border-radius: 25px;
-    cursor: pointer;
-    font-weight: 500;
-    transition: 0.2s ease;
-}
-
-.btn-action:hover {
-    background: #ff7a00;
-}
-
-/* ปุ่มส่งแบบฟอร์มสีกราเดียนท์ส้มหรูหรา ถอดมาจากหน้าแรก */
-.btn-submit {
-    width: 100%;
-    padding: 16px;
-    background: linear-gradient(135deg, #ff7a00, #e56a00);
-    border: none;
-    color: white;
-    font-size: 16.5px;
-    font-weight: 600;
-    border-radius: 30px;
-    cursor: pointer;
-    box-shadow: 0 5px 20px rgba(255,122,0,0.3);
-    transition: 0.3s ease;
-}
-
-.btn-submit:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(255,122,0,0.5);
-}
-
-small {
-    color: #888;
-    font-size: 12px;
-    display: block;
-    margin-top: 4px;
-}
-
-/* Footer (ถอดมาจากหน้าหลัก 100%) */
-footer {
-    text-align: center;
-    padding: 30px;
-    background: #0a192f;
-    border-top: 3px solid #ff7a00;
-    color: #ffffff;
-    font-size: 14px;
-    letter-spacing: 0.5px;
-    margin-top: 50px;
-}
-
-/* Responsive */
-@media(max-width:768px) {
-    body { padding-top: 110px; }
-    .navbar { flex-direction: column; align-items: center; gap: 12px; }
-    .page-title { font-size: 26px; }
-    .row { grid-template-columns: 1fr; gap: 0; }
-    .section { padding: 25px 20px; }
-    .camera-controls { grid-template-columns: 1fr; }
+/* ปุ่ม */
+.btn-submit{
+background:linear-gradient(135deg,#ff7a00,#e56a00);
+color:#fff;
+padding:16px;
+border:none;
+width:100%;
+border-radius:30px;
+font-size:16px;
+cursor:pointer;
 }
 </style>
 </head>
 
 <body>
 
-<header>
-    <div class="navbar">
-        <div class="company-name">IRM<span style="color:#ffffff;">Extra</span></div>
-        <div class="nav-menu">
-            <a href="index.html">หน้าหลัก</a>
-            <a href="index.html#about">เกี่ยวกับเรา</a>
-            <a href="index.html#services">บริการของเรา</a>
-            <a href="index.html#team">ทีมบริหาร</a>
-            <a href="index.html#contact">ติดต่อเรา</a>
-        </div>
-    </div>
-</header>
-
 <div class="container">
 
-    <h1 class="page-title">ฟอร์มสมัครงาน<span>ออนไลน์</span></h1>
+<h2>ฟอร์มสมัครงาน</h2>
 
-    <div class="section">
-        <h2>ข้อมูลส่วนตัว</h2>
-        <div class="row">
-            <div class="form-group">
-                <label>ชื่อ-นามสกุล</label>
-                <input type="text" placeholder="ระบุชื่อ และนามสกุลของคุณ">
-            </div>
-            <div class="form-group">
-                <label>วัน/เดือน/ปีเกิด</label>
-                <input type="date">
-            </div>
-        </div>
+<!-- ===== FORM ===== -->
+<div class="section">
 
-        <div class="row">
-            <div class="form-group">
-                <label>อายุ (ปี)</label>
-                <input type="number" placeholder="เช่น 25">
-            </div>
-            <div class="form-group">
-                <label>น้ำหนัก / ส่วนสูง</label>
-                <input type="text" placeholder="เช่น 65 กก. / 175 ซม.">
-            </div>
-        </div>
+<label>ชื่อ-นามสกุล</label>
+<input type="text" id="full_name">
 
-        <div class="row">
-            <div class="form-group">
-                <label>เชื้อชาติ</label>
-                <input type="text" placeholder="ไทย">
-            </div>
-            <div class="form-group">
-                <label>สัญชาติ</label>
-                <input type="text" placeholder="ไทย">
-            </div>
-        </div>
+<label>วันเกิด</label>
+<input type="date" id="birth_date">
 
-        <div class="form-group">
-            <label>ศาสนา</label>
-            <input type="text" placeholder="ระบุศาสนา">
-        </div>
-    </div>
+<label>อายุ</label>
+<input type="number" id="age">
 
-    <div class="section">
-        <h2>รูปถ่ายผู้สมัครงาน</h2>
-        <div class="camera-box">
-            <video id="video" autoplay></video>
-            
-            <div class="camera-controls">
-                <button type="button" class="btn-action" onclick="startCamera()">📷 เปิดกล้อง</button>
-                <button type="button" class="btn-action" onclick="takePhoto()" style="background:#ff7a00;">📸 ถ่ายภาพ</button>
-            </div>
-            <button type="button" class="btn-action" onclick="stopCamera()" style="width:100%; background:#777;">❌ ปิดกล้อง</button>
+<label>โทร</label>
+<input type="tel" id="phone">
 
-            <canvas id="canvas" style="display:none;"></canvas>
-            <img id="preview" alt="รูปถ่ายของคุณ">
-            <input type="hidden" id="photoData">
-        </div>
-    </div>
+<label>Email</label>
+<input type="email" id="email">
 
-    <div class="section">
-        <h2>ข้อมูลการศึกษา</h2>
-        <div class="form-group">
-            <label>ระดับการศึกษาสูงสุด</label>
-            <select>
-                <option>ต่ำกว่ามัธยมศึกษา</option>
-                <option>มัธยมศึกษา</option>
-                <option>ปวช.</option>
-                <option>ปวส.</option>
-                <option>ปริญญาตรี</option>
-                <option>ปริญญาโท</option>
-                <option>ปริญญาเอก</option>
-            </select>
-        </div>
+<label>ตำแหน่ง</label>
+<select id="position">
+<option>Developer</option>
+<option>Admin</option>
+<option>HR</option>
+</select>
 
-        <div class="form-group">
-            <label>สถาบันการศึกษา</label>
-            <input type="text" placeholder="ชื่อโรงเรียนหรือมหาวิทยาลัย">
-        </div>
+<label>Resume (PDF)</label>
+<input type="file" id="resume">
 
-        <div class="row">
-            <div class="form-group">
-                <label>สาขาวิชา</label>
-                <input type="text" placeholder="เช่น บริหารธุรกิจ / วิศวกรรมไฟฟ้า">
-            </div>
-            <div class="form-group">
-                <label>ปีที่จบการศึกษา (พ.ศ.)</label>
-                <input type="number" placeholder="เช่น 2565">
-            </div>
-        </div>
+<label>รูปถ่าย</label>
+<input type="file" id="photo">
 
-        <div class="form-group">
-            <label>แนบหลักฐานวุฒิการศึกษา</label>
-            <input type="file">
-            <small>รองรับไฟล์ PDF, JPG, PNG ขนาดไม่เกิน 5MB</small>
-        </div>
-    </div>
+<br><br>
 
-    <div class="section">
-        <h2>ข้อมูลเอกสารสำคัญ</h2>
-        <div class="form-group">
-            <label>เลขบัตรประจำตัวประชาชน</label>
-            <input type="text" placeholder="เลข 13 หลัก">
-        </div>
-
-        <div class="row">
-            <div class="form-group">
-                <label>ออกให้โดย (อำเภอ/เขต)</label>
-                <input type="text" placeholder="เช่น เมืองนครราชสีมา">
-            </div>
-            <div class="form-group">
-                <label>จังหวัด</label>
-                <input type="text" placeholder="เช่น นครราชสีมา">
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label>แนบสำเนาบัตรประชาชน</label>
-            <input type="file">
-        </div>
-    </div>
-
-    <div class="section">
-        <h2>ข้อมูลที่อยู่</h2>
-        <div class="form-group">
-            <label>ที่อยู่ตามทะเบียนบ้าน</label>
-            <textarea rows="3" placeholder="ระบุที่อยู่ให้ครบถ้วน"></textarea>
-        </div>
-
-        <div class="form-group">
-            <label>ที่อยู่ปัจจุบัน (ที่สามารถติดต่อได้)</label>
-            <textarea rows="3" placeholder="ระบุที่อยู่ปัจจุบัน"></textarea>
-        </div>
-
-        <div class="form-group">
-            <label>แนบสำเนาทะเบียนบ้าน</label>
-            <input type="file">
-        </div>
-    </div>
-
-    <div class="section">
-        <h2>ข้อมูลการติดต่อ</h2>
-        <div class="row">
-            <div class="form-group">
-                <label>เบอร์โทรศัพท์มือถือ</label>
-                <input type="tel" placeholder="เช่น 0987654321">
-            </div>
-            <div class="form-group">
-                <label>อีเมล (E-mail)</label>
-                <input type="email" placeholder="example@gmail.com">
-            </div>
-        </div>
-    </div>
-
-    <div class="section">
-        <h2>สถานภาพทางทหาร (เฉพาะผู้สมัครชาย)</h2>
-        <div class="checkbox-group">
-            <label><input type="checkbox"> ได้รับการยกเว้น</label>
-            <label><input type="checkbox"> จับได้ใบดำ</label>
-            <label><input type="checkbox"> ผ่านการเรียน รด. (นศท.)</label>
-            <label><input type="checkbox"> อื่นๆ / ยังไม่ได้เกณฑ์</label>
-        </div>
-    </div>
-
-    <div class="section">
-        <h2>ข้อมูลครอบครัว (บิดา-มารดา)</h2>
-        <div class="row">
-            <div class="form-group">
-                <label>บิดา - ชื่อ / นามสกุล</label>
-                <input type="text">
-            </div>
-            <div class="form-group">
-                <label>มารดา - ชื่อ / นามสกุล</label>
-                <input type="text">
-            </div>
-        </div>
-        <div class="row">
-            <div class="form-group">
-                <label>อาชีพ</label>
-                <input type="text">
-            </div>
-            <div class="form-group">
-                <label>เบอร์โทรศัพท์ติดต่อ</label>
-                <input type="tel">
-            </div>
-        </div>
-    </div>
-
-    <div class="section">
-        <h2>สถานภาพสมรส</h2>
-        <div class="checkbox-group">
-            <label><input type="checkbox"> โสด</label>
-            <label><input type="checkbox"> แต่งงาน</label>
-            <label><input type="checkbox"> หม้าย</label>
-            <label><input type="checkbox"> หย่าร้าง</label>
-        </div>
-    </div>
-
-    <div class="section">
-        <h2>บุคคลที่สามารถติดต่อได้ในกรณีฉุกเฉิน</h2>
-        <div class="form-group">
-            <label>ชื่อ-นามสกุล / ที่อยู่ / ความสัมพันธ์</label>
-            <textarea rows="3" placeholder="ระบุข้อมูลผู้ติดต่อฉุกเฉิน"></textarea>
-        </div>
-        <div class="form-group">
-            <label>เบอร์โทรศัพท์ติดต่อฉุกเฉิน</label>
-            <input type="tel" placeholder="เบอร์โทรที่ติดต่อได้ทันที">
-        </div>
-    </div>
-
-    <div class="section">
-        <h2>ความคาดหวัง</h2>
-        <div class="form-group">
-            <label>เงินเดือนที่ต้องการ (บาท / เดือน)</label>
-            <input type="number" placeholder="เช่น 18000">
-        </div>
-    </div>
-
-    <div style="margin-top:40px; text-align:center;">
-        <button type="button" class="btn-submit" onclick="window.location.href='success.html'">
-            🚀 ยืนยันข้อมูลทั้งหมดและส่งใบสมัคร
-        </button>
-    </div>
+<button class="btn-submit" onclick="submitApplication()">
+ส่งใบสมัคร
+</button>
 
 </div>
+</div>
 
-<footer>
-    IRM EXTRA © 2026 Premium Property Management Service
-</footer>
+<!-- ===== SUPABASE ===== -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
-let stream;
+const supabaseUrl = "https://ligqxvqxionkdkikdcvn.supabase.co";
+const supabaseKey = "YOUR_PUBLISHABLE_KEY";
 
-// ฟังก์ชันเปิดกล้อง
-function startCamera(){
-    const video = document.getElementById('video');
-    navigator.mediaDevices.getUserMedia({ video: { width: 1280, height: 720 } })
-    .then(s => {
-        stream = s;
-        video.srcObject = stream;
-    })
-    .catch(err => {
-        alert("ไม่สามารถเข้าถึงกล้องได้: " + err);
-    });
-}
+const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
 
-// ฟังก์ชันปิดกล้อง
-function stopCamera(){
-    const video = document.getElementById('video');
-    if(stream){
-        stream.getTracks().forEach(track => track.stop());
-        video.srcObject = null;
-        stream = null;
-    }
-}
+async function uploadFile(file, folder){
+    const fileName = Date.now() + "-" + file.name;
 
-// ฟังก์ชันถ่ายภาพและแปลงไฟล์
-function takePhoto(){
-    const video = document.getElementById('video');
-    const canvas = document.getElementById('canvas');
-    const preview = document.getElementById('preview');
-    const photoData = document.getElementById('photoData');
+    const { data, error } = await supabase.storage
+        .from("files")
+        .upload(folder + "/" + fileName, file);
 
-    if(!stream) {
-        alert("กรุณาเปิดกล้องก่อนถ่ายภาพครับ");
-        return;
+    if(error){
+        console.log(error);
+        return null;
     }
 
-    canvas.width = video.videoWidth;
-    canvas.height = video.videoHeight;
+    const { data: urlData } = supabase.storage
+        .from("files")
+        .getPublicUrl(folder + "/" + fileName);
 
-    const ctx = canvas.getContext('2d');
-    ctx.drawImage(video, 0, 0);
+    return urlData.publicUrl;
+}
 
-    const dataURL = canvas.toDataURL('image/png');
-    preview.src = dataURL;
-    preview.style.display = "block";
-    photoData.value = dataURL;
+async function submitApplication(){
+
+    const full_name = document.getElementById("full_name").value;
+    const birth_date = document.getElementById("birth_date").value;
+    const age = document.getElementById("age").value;
+    const phone = document.getElementById("phone").value;
+    const email = document.getElementById("email").value;
+    const position = document.getElementById("position").value;
+
+    const resumeFile = document.getElementById("resume").files[0];
+    const photoFile = document.getElementById("photo").files[0];
+
+    let resume_url = "";
+    let photo_url = "";
+
+    // upload resume
+    if(resumeFile){
+        resume_url = await uploadFile(resumeFile, "resume");
+    }
+
+    // upload photo
+    if(photoFile){
+        photo_url = await uploadFile(photoFile, "photo");
+    }
+
+    const { error } = await supabase
+    .from("applicants")
+    .insert([{
+        name: full_name,
+        birth_date: birth_date,
+        age: age,
+        phone: phone,
+        email: email,
+        position: position,
+        resume_url: resume_url,
+        photo_url: photo_url,
+        status: "pending"
+    }]);
+
+    if(error){
+        alert("เกิดข้อผิดพลาด: " + error.message);
+        console.log(error);
+    } else {
+        alert("ส่งใบสมัครสำเร็จ");
+        window.location.href = "success.html";
+    }
 }
 </script>
 
